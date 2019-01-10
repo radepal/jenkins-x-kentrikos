@@ -14,7 +14,7 @@ jobs:
                 scm {
                   git {
                     remote {
-                      url("${JOB_REPO_URL}")
+                      url("$JOB_REPO_URL")
                     }
                     branch("*/master")
                   }
