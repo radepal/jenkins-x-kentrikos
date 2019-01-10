@@ -5,10 +5,7 @@ plugins:
     port: ${jenkins_proxy_http_port}
 jobs:
   - script: >
-      [
-          [name: 'Install_Kubernetes', path: 'application/kubernetes/install/Jenkinsfile'],
-      ].each { Map config ->
-          pipelineJob(config.name) {
+      pipelineJob("Install_Kubernetes") {
             description()
             disabled(false)
             keepDependencies(false)
@@ -18,13 +15,11 @@ jobs:
                   git {
                     remote {
                       url("${jenkins_job_repo_url}")
-                      credentials("bitbucket-key")
                     }
                     branch("*/master")
                   }
                 }
-                scriptPath(config.path)
+                scriptPath("application/kubernetes/install/Jenkinsfile")
               }
             }
            }
-      }
