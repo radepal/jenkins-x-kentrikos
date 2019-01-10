@@ -14,7 +14,7 @@ jobs:
                 scm {
                   git {
                     remote {
-                      url("$JOB_REPO_URL")
+                      url("https://github.com/kentrikos/jenkins-bootstrap-pipelines.git")
                     }
                     branch("*/master")
                   }
